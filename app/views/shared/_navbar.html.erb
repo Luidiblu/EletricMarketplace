@@ -13,7 +13,10 @@
   <% if user_signed_in? %>
   <ul class="navbar-nav">
     <li class="nav-iteme">
-      <%= link_to "PROFILE", "#", class: "nav-link" %>
+      <%= link_to "NEW PRODUCT", new_product_path, class: "nav-link" %>
+    </li>
+    <li class="nav-iteme">
+      <%= link_to "EDIT PROFILE", edit_user_registration_path, class: "nav-link" %>
     </li>
     <li class="nav-iteme">
       <%= link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: "nav-link" %>

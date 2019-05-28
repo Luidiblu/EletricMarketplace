@@ -7,6 +7,10 @@
 
   <h3><%= @product.name %></h3>
   <div class="d-flex justify-content-between">
+    <div class="commands">
+      <%= link_to "Edit", edit_product_path %>
+      <%= link_to "DELETE", product_path, method: :delete %>
+    </div>
     <p><%= @product.description %></p>
     <div class="details">
       <p>
@@ -15,11 +19,12 @@
       </p>
 
       <p>
-        <i class="fas fa-envelope"><%= @product.user.email %></i>
+        <i class="fas fa-envelope"><%= " #{@product.user.email}" %></i>
       </p>
 
-
       <p class="price"><%= @product.price %></p>
+
+      <%= link_to "BUY NOW", "#/", class: "btn btn-success w-100" %>
     </div>
   </div>
 </div>
