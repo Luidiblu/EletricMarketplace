@@ -1,10 +1,27 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, except: :index
   before_action :set_product, only: %i[show]
+
   def index
     @products = Product.all
   end
 
   def show
+  end
+
+  def new
+    @product = Product.new
+  end
+
+  def create
+    @product = Product.new(product_params)
+    @product.user = current_user
+
+    if @product.save
+      redirect_to @product
+    else
+      render :new
+    end
   end
 
   private
@@ -14,6 +31,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price)
+    params.require(:product).permit(:name, :category, :description, :price)
   end
 end
