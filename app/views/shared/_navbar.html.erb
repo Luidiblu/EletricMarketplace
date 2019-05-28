@@ -1,5 +1,9 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+
+<div class="<%= current_page?(controller:'pages', action:'home') ? 'navbar navbar-expand-sm navbar-light navbar-lewagon' : 'navbar navbar-expand-sm navbar-light navbar-lewagon navbar-black'  %> ">
+
+
+<!-- <div class="navbar navbar-expand-sm navbar-light navbar-lewagon"> -->
+  <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "http://www.fandmevents.com/event1/wp-content/uploads/2013/08/white-leaf-icon.png" %>
   <% end %>
 

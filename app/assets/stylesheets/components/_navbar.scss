@@ -1,14 +1,5 @@
 .navbar-lewagon {
-  align-content: center;
-  display: flex;
-  justify-content: center;
   justify-content: space-between;
-  list-style: none;
-  font-family: Gotham Medium,system,sans-serif;
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  z-index: 1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -29,3 +20,8 @@
 .navbar-light .navbar-nav .nav-link:hover {
     color: #D3D3D3;
 }
+
+.navbar-black {
+  background-color: #212121;
+}
+
