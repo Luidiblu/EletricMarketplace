@@ -1,18 +1,20 @@
 <div class="container">
   <div class="row">
     <% @products.each do |product| %>
-      <div class="card col-12 col-md-4 col-lg-3">
-        <%= link_to product_path(product) do %>
-          <%= image_tag("https://img.ibxk.com.br///2019/02/01/01171157507271-t1200x480.jpg", style: "object-fit: cover; height: 250px;", class: "card-img") %>
-          <div class="card-body">
-            <div class="card-text">
-              <%= product.name %>
+      <div class="col-12 col-md-4 col-lg-3 p-1">
+        <div class="card p-2">
+          <%= link_to product_path(product) do %>
+            <%= image_tag("https://img.ibxk.com.br///2019/02/01/01171157507271-t1200x480.jpg", style: "object-fit: cover; height: 250px;", class: "card-img") %>
+            <div class="card-body">
+              <div class="card-title">
+                <%= product.name %>
+              </div>
+              <div class="card-text">
+                <%= product.user.email %>
+              </div>
             </div>
-            <div class="card-text">
-              <%= product.user.email %>
-            </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
