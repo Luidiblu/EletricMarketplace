@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="parallax" style="background-image: url('https://img.ibxk.com.br///2019/02/01/01171157507271-t1200x480.jpg')">
+    <!-- Inserir Embeded Ruby quanto houver @product.img ou algo assim -->
+
+  </div>
+
+  <h3><%= @product.name %></h3>
+  <div class="d-flex justify-content-between">
+    <p><%= @product.description %></p>
+    <div class="details">
+      <p>
+        <i class="fas fa-user"></i>
+        NOME QUANDO TIVER
+      </p>
+
+      <p>
+        <i class="fas fa-at"><%= @product.user.email %></i>
+      </p>
+
+
+      <p class="price"><%= @product.price %></p>
+    </div>
+  </div>
+</div>
