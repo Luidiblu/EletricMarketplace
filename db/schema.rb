@@ -50,5 +50,4 @@ ActiveRecord::Schema.define(version: 2019_05_27_220218) do
   add_foreign_key "products", "users"
   add_foreign_key "transactions", "products"
   add_foreign_key "transactions", "users"
->>>>>>> 456804b088e99c5c5c093827f3b7f84a058e72be
 end
