@@ -1,8 +1,4 @@
-
-<div class="<%= 'navbar navbar-expand-sm navbar-light navbar-lewagon navbar-black' %>">
-
-
-<!-- <div class="navbar navbar-expand-sm navbar-light navbar-lewagon"> -->
+<div class="<%= params[:controller] == 'pages' && %w(home).include?(params[:action]) ? 'navbar navbar-expand-sm navbar-light navbar-lewagon' : 'navbar navbar-expand-sm navbar-light navbar-lewagon navbar-black' %>">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "http://www.fandmevents.com/event1/wp-content/uploads/2013/08/white-leaf-icon.png" %>
   <% end %>
@@ -32,5 +28,5 @@
       <%= link_to "SIGN UP", new_user_registration_path, class: "nav-link" %>
     </li>
   </ul>
-</div>
 <% end %>
+</div>
