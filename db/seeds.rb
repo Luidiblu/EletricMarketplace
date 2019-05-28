@@ -9,7 +9,6 @@ if user.save
 else
   puts "========== Something went wrong =========="
   puts "===== #{user.errors.messages} ====="
-  gets
 end
 
 5.times do |n|
