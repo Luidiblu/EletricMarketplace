@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_05_27_220218) do
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "orders", force: :cascade do |t|
     t.integer "price"
     t.bigint "user_id"
     t.bigint "product_id"
@@ -49,6 +49,6 @@ ActiveRecord::Schema.define(version: 2019_05_27_220218) do
   end
 
   add_foreign_key "products", "users"
-  add_foreign_key "transactions", "products"
-  add_foreign_key "transactions", "users"
+  add_foreign_key "orders", "products"
+  add_foreign_key "orders", "users"
 end
