@@ -22,7 +22,7 @@
         <i class="fas fa-envelope"><%= " #{@product.user.email}" %></i>
       </p>
 
-      <p class="price"><%= @product.price %></p>
+      <p class="price">R$ <%= @product.price %>,00</p>
       <% if user_signed_in? %>
         <%= link_to "BUY NOW", product_orders_path(@product), method: :post, class: "btn btn-success w-100" %>
       <% end %>
