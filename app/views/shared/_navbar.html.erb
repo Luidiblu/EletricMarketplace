@@ -13,6 +13,9 @@
   <% if user_signed_in? %>
   <ul class="navbar-nav">
     <li class="nav-iteme">
+      <%= link_to "VIEW MY ORDERS", user_path(current_user), class: "nav-link" %>
+    </li>
+    <li class="nav-iteme">
       <%= link_to "NEW PRODUCT", new_product_path, class: "nav-link" %>
     </li>
     <li class="nav-iteme">
