@@ -10,6 +10,9 @@
 
   <%= f.input :description %>
 
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+
   <%= f.button :submit, class: "btn-primary" %>
   <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
 <% end %>
