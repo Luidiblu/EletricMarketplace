@@ -1,0 +1,5 @@
+<div class="container">
+  <% @user.orders.each do |order| %>
+    <p><%= order.product.name %>: <%= order.price %></p>
+  <% end %>
+</div>
