@@ -1,2 +1,2 @@
 import "bootstrap";
-import "animate";
+import "animate.css";
