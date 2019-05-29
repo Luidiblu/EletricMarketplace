@@ -1,5 +1,20 @@
 <div class="container">
-  <% @user.orders.each do |order| %>
-    <p><%= order.product.name %>: <%= order.price %></p>
-  <% end %>
+  <table class="table">
+    <tr>
+      <th>Order</th>
+      <th>Price</th>
+      <th>Delete</th>
+    </tr>
+    <% @user.orders.each do |order| %>
+      <tr>
+        <td><%= order.product.name %></td>
+        <td><%= order.price %></td>
+        <td>
+          <%= link_to  orders_path(order), method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </div>
