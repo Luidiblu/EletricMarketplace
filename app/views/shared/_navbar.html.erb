@@ -12,13 +12,7 @@
       <%= link_to "PRODUCTS", products_path, class: "nav-link tesla-btn-nav" %>
     </li>
     <li class="nav-iteme">
-      <%= link_to "ORDERS", user_path(current_user), class: "nav-link tesla-btn-nav" %>
-    </li>
-    <li class="nav-iteme">
-      <%= link_to "NEW SALE", new_product_path, class: "nav-link tesla-btn-nav" %>
-    </li>
-    <li class="nav-iteme">
-      <%= link_to "PROFILE", edit_user_registration_path, class: "nav-link tesla-btn-nav" %>
+      <%= link_to "PROFILE", user_path(current_user), class: "nav-link tesla-btn-nav" %>
     </li>
     <li class="nav-iteme">
       <%= link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: "nav-link tesla-btn-nav" %>

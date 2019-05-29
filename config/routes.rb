@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :products do
     resources :orders, only: %i[create]
   end
+
+  get "/users/:id/products", to: "products#user_products", as: "user_products"
 end
