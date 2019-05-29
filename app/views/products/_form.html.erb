@@ -4,8 +4,7 @@
 
   <%= f.input :name %>
 
-  <%= f.input :category %>
-
+  <%= f.input :category, as: :radio_buttons, collection: ["Sell a Car", "Charging Station"]  %>
   <%= f.input :price %>
 
   <%= f.input :description %>
