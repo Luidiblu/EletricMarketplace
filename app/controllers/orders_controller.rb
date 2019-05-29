@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_product
+  before_action :set_product, except: %i[destroy]
 
   def create
     @order = Order.new(price: @product.price)
@@ -11,6 +11,13 @@ class OrdersController < ApplicationController
     else
       redirect_to product_path(@product)
     end
+  end
+
+  def destroy
+    @order = Order.find(params[:id])
+    @order.delete
+
+    redirect_to user_path(current_user)
   end
 
   private

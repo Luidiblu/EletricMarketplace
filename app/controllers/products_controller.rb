@@ -40,6 +40,12 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  # OTHER ACTIONS
+
+  def user_products
+    @products = Product.where("user_id = #{current_user.id}")
+  end
+
   private
 
   def set_product
