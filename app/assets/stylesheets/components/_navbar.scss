@@ -1,5 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -18,10 +20,9 @@
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-    color: #D3D3D3;
+    color: #212121;
 }
 
 .navbar-black {
   background-color: #212121;
 }
-
