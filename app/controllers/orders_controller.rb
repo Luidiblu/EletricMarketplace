@@ -13,6 +13,10 @@ class OrdersController < ApplicationController
     end
   end
 
+  def destroy
+    @order.delete
+  end
+
   private
 
   def set_product
