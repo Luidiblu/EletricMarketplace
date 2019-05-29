@@ -40,6 +40,16 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  # OTHER ACTIONS
+
+  def user_products
+    @products = Product.where("user_id = #{current_user.id}")
+  end
+
+  def user_sales
+    @products = Product.where("user_id = #{current_user.id}")
+  end
+
   private
 
   def set_product
@@ -47,6 +57,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :category, :description, :price, :user_id, :photo)
+    params.require(:product).permit(:name, :category, :description, :price, :user_id, :photo, :sold)
   end
 end

@@ -1,0 +1,26 @@
+<div class="p-2 my-4 bg-light rounded shadow-sm">
+    <h3>Your Sales</h3>
+    <table class="table">
+      <tr>
+        <th>Order</th>
+        <th>Buyer</th>
+        <th>Price</th>
+        <th>Delete</th>
+      </tr>
+
+      <% @products.each do |product| %>
+        <% next if product.orders.size < 1 %>
+        <tr>
+          <td><%= link_to product.name, product_path(product), class: "btn btn-secondary" %></td>
+          <td><%= product.orders.first.user.email %></td>
+          <td><%= "R#{number_to_currency((product.orders.first.price/100.0).round(2))}" %></td>
+          <td>
+            <%= link_to  order_path(product.orders.first), method: :delete do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+
+    </table>
+  </div>
