@@ -10,7 +10,7 @@
   right: 0px;
   top: 0px;
   bottom: 0px;
-  z-index: -1;
+  z-index: 0;
 }
 
 .banner_home h1 {
@@ -32,7 +32,7 @@
   left: 0;
   border-color: white;
   color: white;
-  font-size: 12px;
+  font-size: 17px;
   padding: 11px 42px;
   font-weight: bold;
   background-color: transparent;
@@ -50,9 +50,65 @@
     border: 3px solid white;
 }
 
-.tesla-btn:hover{
-  color: gray;
+.tesla-btn-nav{
+  left: 0;
+  border-color: white;
+  color: white;
+  font-size: 12px;
+  padding: 11px 42px;
+  font-weight: bold;
+  background-color: transparent;
+  width: auto;
+  display: inline-block;
+  margin: 8px;
+  font-family: Gotham Medium,system,sans-serif;
+  line-height: 1.2;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color .15s ease-in-out,color .15s ease-in-out;
+  border-radius: 100px;
+    border: 1.5px solid white;
+}
+
+.tesla-btn-nav:hover{
+  color: #212121;
   background-color: white;
   text-decoration: none;
   font-weight: bold;
+}
+
+
+.tesla-btn:hover{
+  color: #212121;
+  background-color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.background-semi-home {
+  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), #333 url(http://hdqwalls.com/wallpapers/tesla-roadster-2018-4k-25.jpg) no-repeat center center fixed;
+  background-size: cover;
+  text-align: center;
+  justify-content: center;
+  border: none;
+}
+
+.background-semi-home h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  padding-top: 95px;
+  font-size: 40px;
+}
+
+.background-semi-home p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0);
+
 }
