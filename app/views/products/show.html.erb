@@ -27,7 +27,7 @@
       </p>
 
       <p class="price">R$ <%= @product.price %>,00</p>
-      <% if user_signed_in? && (current_user != @product.user) %>
+      <% if user_signed_in? && (current_user != @product.user)%>
         <%= link_to "BUY NOW", product_orders_path(@product), method: :post, class: "btn btn-success w-100" %>
       <% end %>
     </div>
