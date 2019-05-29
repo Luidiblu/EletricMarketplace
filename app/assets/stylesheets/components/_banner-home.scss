@@ -50,8 +50,38 @@
     border: 3px solid white;
 }
 
+.tesla-btn-nav{
+  left: 0;
+  border-color: white;
+  color: white;
+  font-size: 12px;
+  padding: 11px 42px;
+  font-weight: bold;
+  background-color: transparent;
+  width: auto;
+  display: inline-block;
+  margin: 8px;
+  font-family: Gotham Medium,system,sans-serif;
+  line-height: 1.2;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color .15s ease-in-out,color .15s ease-in-out;
+  border-radius: 100px;
+    border: 1.5px solid white;
+}
+
+.tesla-btn-nav:hover{
+  color: #212121;
+  background-color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
 .tesla-btn:hover{
-  color: gray;
+  color: #212121;
   background-color: white;
   text-decoration: none;
   font-weight: bold;
