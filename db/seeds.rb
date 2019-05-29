@@ -1,3 +1,15 @@
+puts "Cleaning Database"
+
+User.destroy_all
+puts "#{User.count} Users!"
+
+Product.destroy_all
+puts "#{Product.count} Products!"
+
+Order.destroy_all
+puts "#{Order.count} Orders!"
+
+
 puts "Creating Fake user with 5 Fake Cars"
 user = User.new(
   email: "roberto@barros.com",
