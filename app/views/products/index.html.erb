@@ -1,24 +1,9 @@
-<header>
-  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-    <source src="https://www.tesla.com/ns_videos/models/autonomy/hero.mp4" type="video/mp4">
-  </video>
-  <div class="container h-100">
-    <div class="d-flex h-100 text-center  align-items-center">
-      <div class="w-100 text-capitalize">
-        <h1 class="h1 display-3 animated fadeInRight">Seja Bem Vindo!</h1>
-        <p class="lead display-5 mb-0 animated jackInTheBox">
-          Ache Seu Carro Novo</p>
-      </div>
-    </div>
-  </div>
-</header>
-
 <div class="container">
   <div class="row">
     <% @products.each do |product| %>
       <% next if product.user == current_user %>
         <div class="col-12 col-md-4 col-lg-3 p-1">
-          <div class="card p-2 animated fadeInRight">
+          <div class="card p-2">
             <%= link_to product_path(product) do %>
             <% photo = product.photo.url ? product.photo.url : "https://img.ibxk.com.br///2019/02/01/01171157507271-t1200x480.jpg" %>
               <%= image_tag( photo ,style: "object-fit: cover; height: 250px;", class: "card-img") %>
