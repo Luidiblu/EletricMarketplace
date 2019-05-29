@@ -1,5 +1,8 @@
 <div class="container_new">
-  <div class="parallax" style="background-image: url('<%= @product.photo %>')">
+  <div class="parallax" style="background-image: url('<%= @product.photo %>');">
+    <% if @product.sold? %>
+      <h2 style="color: red;">SOLD</h2>
+    <% end %>
     <!-- Inserir Embeded Ruby quanto houver @product.img ou algo assim -->
   </div>
 </div>
@@ -26,8 +29,9 @@
         <i class="fas fa-envelope"><%= " #{@product.user.email}" %></i>
       </p>
 
-      <p class="price">R$ <%= @product.price %>,00</p>
-      <% if user_signed_in? && (current_user != @product.user) %>
+      <p class="price"><%= "R#{number_to_currency((@product.price/100.0).round(2))}" %></p>
+
+      <% if (user_signed_in? && (current_user != @product.user)) && (!@product.sold?) %>
         <%= link_to "BUY NOW", product_orders_path(@product), method: :post, class: "btn btn-success w-100" %>
       <% end %>
     </div>
