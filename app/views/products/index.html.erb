@@ -15,7 +15,7 @@
                 <%= product.user.email %>
               </div>
               <div class="card-text">
-                <p>R$ <%= product.price %>,00</p>
+                <p><%= "R#{number_to_currency((product.price/100.0).round(2))}" %></p>
               </div>
             </div>
           <% end %>
