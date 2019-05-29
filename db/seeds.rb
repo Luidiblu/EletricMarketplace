@@ -1,11 +1,23 @@
 puts "Creating Fake user with 5 Fake Cars"
 user = User.new(
-  email: "admin@admin.com",
+  email: "roberto@barros.com",
   password: "thanos"
   )
 
 if user.save
-  puts "#{User.first.email} was created, with #{User.first.password}"
+  puts "#{User.last.email} was created, with #{User.last.password}"
+else
+  puts "========== Something went wrong =========="
+  puts "===== #{user.errors.messages} ====="
+end
+
+user = User.new(
+  email: "elon@musk.com",
+  password: "thanos"
+  )
+
+if user.save
+  puts "#{User.last.email} was created, with #{User.last.password}"
 else
   puts "========== Something went wrong =========="
   puts "===== #{user.errors.messages} ====="
@@ -27,11 +39,11 @@ Ludicrous Speed Upgrade",
     category: "Model S"
     )
 
-  car.user = User.first
+  car.user = User.last
   car.remote_photo_url = "https://onlyusedtesla.com/wp-content/uploads/2019/04/cover-main4-1-1024x768.jpg"
 
 if car.save
-  puts "#{car.name} created!"
+  puts "#{car.name} from #{car.user.email} created!"
 else
   puts "========== Something went wrong =========="
   puts "===== #{car.errors.messages} ====="
@@ -65,7 +77,7 @@ FREE SUPERCHARGING",
   car.remote_photo_url = "https://onlyusedtesla.com/wp-content/uploads/2019/05/cover-main2-1024x768.jpg"
 
 if car.save
-  puts "#{car.name} created!"
+  puts "#{car.name} from #{car.user.email} created!"
 else
   puts "========== Something went wrong =========="
   puts "===== #{car.errors.messages} ====="
@@ -85,11 +97,11 @@ EAP NOT ENABLED. NEW OWNER MAY ENABLE WITH TESLA FOR A FEE
     category: "Model 3"
     )
 
-  car.user = User.first
+  car.user = User.last
   car.remote_photo_url = "https://onlyusedtesla.com/wp-content/uploads/2019/05/cover2-1024x768.jpg"
 
 if car.save
-  puts "#{car.name} created!"
+  puts "#{car.name} from #{car.user.email} created!"
 else
   puts "========== Something went wrong =========="
   puts "===== #{car.errors.messages} ====="
@@ -112,11 +124,11 @@ Fuel Savings",
     category: "semi"
     )
 
-  car.user = User.first
+  car.user = User.last
   car.remote_photo_url = "https://static.interestingengineering.com/images/SEPTEMBER/sizes/Tesla_Semi_3_resize_md.jpg"
 
 if car.save
-  puts "#{car.name} created!"
+  puts "#{car.name} from #{car.user.email} created!"
 else
   puts "========== Something went wrong =========="
   puts "===== #{car.errors.messages} ====="
@@ -137,9 +149,51 @@ end
   car.remote_photo_url = "https://content.autotrader.com/content/dam/autotrader/articles/OversteerImages/2018/August/byton/1.jpg"
 
 if car.save
-  puts "#{car.name} created!"
+  puts "#{car.name} from #{car.user.email} created!"
 else
   puts "========== Something went wrong =========="
   puts "===== #{car.errors.messages} ====="
 end
 
+  car = Product.create(
+    name: "Chevrolet BOLT 2019",
+    description: "Powertrain: 200 HP
+Dimensions: 4.166 mm C x 1.765 mm L x 1.595 mm A
+Max speed: 145 km/h
+Thrust de 0 a 100 km/h: 6,5 sec
+Peso: 1.616 kg
+Transmission: Automatic",
+    price: rand(100_000..300_000),
+    category: "BOLT"
+    )
+
+  car.user = User.first
+  car.remote_photo_url = "https://f55ff981c29d315c8a1f-4d8875650ec84b25850d5b6d643fa0d7.ssl.cf1.rackcdn.com/1G1FW6S03K4101269/f8c7d24dd9b00b8c716f63706b1c6f51.jpg"
+
+if car.save
+  puts "#{car.name} from #{car.user.email} created!"
+else
+  puts "========== Something went wrong =========="
+  puts "===== #{car.errors.messages} ====="
+end
+
+  car = Product.create(
+    name: "Renault Zoe 2019",
+    description: "Max speed: 135 km/h
+Powertrain: 92 HP
+Thrust de 0 a 100 km/h: 13,2 segundos
+Dimensions: 4.084 mm C x 1.730 mm L x 1.562 mm A
+Vol: Basic: 338 l / Retracted seats: 1.225 l",
+    price: rand(100_000..300_000),
+    category: "ZOE"
+    )
+
+  car.user = User.first
+  car.remote_photo_url = "https://www.razaoautomovel.com/wp-content/uploads/2018/02/ZOE-ZE-40-CR-4-e1518782912600_925x520_acf_cropped-1.jpg"
+
+if car.save
+  puts "#{car.name} from #{car.user.email} created!"
+else
+  puts "========== Something went wrong =========="
+  puts "===== #{car.errors.messages} ====="
+end
