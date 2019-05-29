@@ -5,16 +5,18 @@
       <th>Price</th>
       <th>Delete</th>
     </tr>
+
     <% @user.orders.each do |order| %>
       <tr>
         <td><%= order.product.name %></td>
         <td><%= order.price %></td>
         <td>
-          <%= link_to  orders_path(order), method: :delete do %>
+          <%= link_to  order_path(order), method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         </td>
       </tr>
     <% end %>
+
   </table>
 </div>
