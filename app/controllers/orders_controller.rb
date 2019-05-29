@@ -7,6 +7,9 @@ class OrdersController < ApplicationController
     @order.product = @product
 
     if @order.save
+      @order.product.sold = true
+      @order.product.save
+
       redirect_to user_path(current_user)
     else
       redirect_to product_path(@product)
@@ -15,6 +18,9 @@ class OrdersController < ApplicationController
 
   def destroy
     @order = Order.find(params[:id])
+    @order.product.sold = false
+    @order.product.save
+
     @order.delete
 
     redirect_to user_path(current_user)
