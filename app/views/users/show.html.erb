@@ -1,22 +1,51 @@
 <div class="container">
-  <table class="table">
-    <tr>
-      <th>Order</th>
-      <th>Price</th>
-      <th>Delete</th>
-    </tr>
 
-    <% @user.orders.each do |order| %>
-      <tr>
-        <td><%= order.product.name %></td>
-        <td><%= order.price %></td>
-        <td>
-          <%= link_to  order_path(order), method: :delete do %>
-            <i class="fas fa-trash-alt"></i>
-          <% end %>
-        </td>
-      </tr>
+  <div class="p-1 my-2 bg-light rounded shadow-sm">
+    <h3>PROFILE SETTINGS</h3>
+    <div class="d-flex justify-content-around align-items-center">
+      <p>Edit Profile</p>
+      <p>Add a Photo</p>
+      <p>Delete Account</p>
+    </div>
+  </div>
+
+  <div class="p-1 my-2 bg-light rounded shadow-sm">
+    <h3>YOUR SALES</h3>
+    <div class="d-flex justify-content-around align-items-center">
+      <p>Announce a New Product</p>
+      <p>List all your products</p>
+      <p>List all bought products</p>
+    </div>
+  </div>
+
+  <div class="p-1 my-2 bg-light rounded shadow-sm">
+    <h3>Your Orders</h3>
+    <% if @user.orders.size > 0 %>
+      <table class="table">
+        <tr>
+          <th>Order</th>
+          <th>Price</th>
+          <th>Delete</th>
+        </tr>
+
+        <% @user.orders.each do |order| %>
+          <tr>
+            <td><%= link_to order.product.name, product_path(order.product) %></td>
+            <td><%= "R#{number_to_currency((order.price/100.0).round(2))}" %></td>
+            <td>
+              <%= link_to  order_path(order), method: :delete do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+
+      </table>
+    <% else %>
+      <div class="text-center">
+        <h5>You have no orders yet.</h5>
+        <p>Lets go Shopping XD</p>
+      </div>
     <% end %>
-
-  </table>
+  </div>
 </div>
