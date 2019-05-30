@@ -8,25 +8,25 @@
         %>
       <% end %>
   </div>
-  <div class="row">
-    <% @products.each do |product| %>
-      <% next if product.sold? %>
-        <div class="col-12 col-md-4 col-lg-3 p-1">
-          <div class="product p-2">
-            <%= link_to product_path(product) do %>
-            <% photo = product.photo.url ? product.photo.url : "https://img.ibxk.com.br///2019/02/01/01171157507271-t1200x480.jpg" %>
-              <%= image_tag( photo ,style: "object-fit: cover; height: 250px;", class: "product-img") %>
-              <div class="product-body">
-                <div class="product-title">
-                  <h6><%= product.name %></h6>
-                </div>
-                <div class="product-text">
-                  <h6><%= number_to_currency((product.price/100.0).round(2)) %></h6>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
+  <% @products.each do |product| %>
+  <% next if product.sold? %>
+  <div class="card-product mt-3">
+    <%= link_to product_path(product) do %>
+    <% photo = product.photo.url ? product.photo.url : "https://img.ibxk.com.br///2019/02/01/01171157507271-t1200x480.jpg" %>
+    <%= image_tag( photo ,style: "object-fit: center", class: "product-img") %>
+    <div class="product-boy">
+      <div class="product-title px-3">
+        <h6><%= product.name %></h6>
+      </div>
+      <div class="product-price text-center px-3">
+        <h6><%= number_to_currency((product.price/100.0).round(2)) %></h6>
+      </div>
+      <div class="product-price text-center px-3">
+        <h6><%= product.description %></h6>
+      </div>
+      <% end %>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>
