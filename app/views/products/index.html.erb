@@ -1,21 +1,30 @@
 <div class="container">
+  <% @products.each do |product| %>
+  <% next if product.sold? %>
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+    <div class="card-product-infos">
+      <h2>Product name</h2>
+      <p>Product description with <strong>relevant info</strong> only.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
   <div class="row">
     <% @products.each do |product| %>
       <% next if product.sold? %>
         <div class="col-12 col-md-4 col-lg-3 p-1">
-          <div class="card p-2">
+          <div class="product p-2">
             <%= link_to product_path(product) do %>
             <% photo = product.photo.url ? product.photo.url : "https://img.ibxk.com.br///2019/02/01/01171157507271-t1200x480.jpg" %>
-              <%= image_tag( photo ,style: "object-fit: cover; height: 250px;", class: "card-img") %>
-              <div class="card-body">
-                <div class="card-title">
-                  <%= product.name %>
+              <%= image_tag( photo ,style: "object-fit: cover; height: 250px;", class: "product-img") %>
+              <div class="product-body">
+                <div class="product-title">
+                  <h6><%= product.name %></h6>
                 </div>
-                <div class="card-text">
-                  <%= product.user.email %>
-                </div>
-                <div class="card-text">
-                  <p><%= number_to_currency((product.price/100.0).round(2)) %></p>
+                <div class="product-text">
+                  <h6><%= number_to_currency((product.price/100.0).round(2)) %></h6>
                 </div>
               </div>
             <% end %>
