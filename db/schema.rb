@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_05_30_170538) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
-    t.boolean "sold", default: false
+    t.boolean "sold"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
