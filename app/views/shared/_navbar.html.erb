@@ -5,9 +5,9 @@
 
   <% if user_signed_in? %>
   <ul class="navbar-nav">
-    <li>
-
-  </li>
+    <li class="nav-iteme">
+      <%= link_to "SELL YOUR CAR", new_product_path, class: "nav-link teslaa-btn-sell" %>
+    </li>
     <li class="nav-iteme">
       <%= link_to "PRODUCTS", products_path, class: "nav-link tesla-btn-nav" %>
     </li>
