@@ -13,4 +13,5 @@ Rails.application.routes.draw do
 
   get "/users/:id/products", to: "products#user_products", as: "user_products"
   get "/users/:id/sales", to: "products#user_sales", as: "user_sales"
+
 end
