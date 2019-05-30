@@ -5,13 +5,13 @@
       <div class="bulma">
         <div class="text-center">
           <img class="avatar-is-rounded" src="https://media.wired.com/photos/5b71cb6251297c21002b4554/master/pass/ElonMusk-974773054.jpg">
-          <h3 class="section-title"><= user.fullname ></h3>
+          <h3 class="section-title"><%= current_user.name %></h3>
         </div>
       </div>
       <div class="section-call-for-actions m-auto">
         <div class="text-center px-3">
           <div class="btn-group">
-            <a href="/models/design" class="btn-secondaryy">EDIT ACCOUNT</a>
+            <%= link_to "EDIT ACCOUNT", edit_user_registration_path(current_user) %>
           </div>
           <a href="/models/design" class="btn-primaryy">DELETE ACCOUNT</a>
           <p>Photo inside "edit account"</p>
