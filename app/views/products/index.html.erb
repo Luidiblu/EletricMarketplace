@@ -1,32 +1,31 @@
 <div class="container">
   <div class="searchbox">
-      <%= form_tag products_path, method: :get, class: "searchbar" do %>
+    <div class="row">
+      <%= form_tag products_path, method: :get, class: "searchbar w-100" do %>
         <%= text_field_tag :query,
         params[:query],
         class: "form-control",
-        placeholder: "Find a car"
+        placeholder: "Search"
         %>
       <% end %>
   </div>
-  <% @products.each do |product| %>
-  <% next if product.sold? %>
-  <div class="card-product mt-3">
-    <%= link_to product_path(product) do %>
-    <% photo = product.photo.url ? product.photo.url : "https://img.ibxk.com.br///2019/02/01/01171157507271-t1200x480.jpg" %>
-    <%= image_tag( photo ,style: "object-fit: center", class: "product-img") %>
-    <div class="product-boy">
-      <div class="product-title px-3">
-        <h6><%= product.name %></h6>
-      </div>
-      <div class="product-price text-center px-3">
-        <h6><%= number_to_currency((product.price/100.0).round(2)) %></h6>
-      </div>
-      <div class="product-price text-center px-3">
-        <h6><%= product.description %></h6>
-      </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <% @products.each do |product| %>
+        <div class="col-12 col-sm-4 w-100">
+        <%= link_to product do %>
+
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path product.photo %>'); margin-bottom:30px">
+            <div class="card-category">$ <%= product.price %></div>
+            <div class="card-description">
+              <h2><%= product.name %></h2>
+            </div>
+            <img class="card-user" src="https://i.imgur.com/b8pzICM.png">
+          </div>
+        <% end %>
+       </div>
       <% end %>
-      </div>
-    </div>
-    <% end %>
   </div>
 </div>
