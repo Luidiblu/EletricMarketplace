@@ -1,4 +1,6 @@
 <div class="container">
+ <div>
+    <%if current_user == @user %>
   <div class="p-2 my-4 bg-light rounded shadow-sm">
     <div class="d-flex">
       <div class="bulma">
@@ -19,8 +21,6 @@
     </div>
   </div>
 </div>
-
-
 <div class="container">
   <div class="p-2 my-4 bg-light rounded shadow-sm">
     <h3>YOUR SALES</h3>
@@ -38,9 +38,6 @@
           <p><%= link_to "List all sold products", user_sales_path, class: "btn btn-secondaryy disabled"%></p>
         <% end %>
       </div>
-    </div>
-  </div>
-
   <div class="p-2 my-4 bg-light rounded shadow-sm">
     <h3>YOUR ORDERS</h3>
     <% if @user.orders.size > 0 %>
@@ -62,14 +59,16 @@
             </td>
           </tr>
         <% end %>
-
+    <% end %>
       </table>
     <% else %>
       <div class="text-center">
         <h5>You have no orders yet.</h5>
         <p><%= link_to "See the products", products_path %></p>
       </div>
+        <%#=  redirect_to user_path(cu) %>
     <% end %>
   </div>
+</div>
 </div>
 </div>
