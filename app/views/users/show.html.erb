@@ -1,67 +1,72 @@
 <div class="container">
+ <div>
+    <%if current_user == @user %>
+      <div class="p-2 my-4 bg-light rounded shadow-sm">
+        <h3>PROFILE SETTINGS</h3>
+        <div class="d-flex justify-content-center align-items-center px-3">
+          <div class="d-flex justify-content-start w-100 p-2">
+            <p><%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-secondary"%></p>
+          </div>
+          <div class="d-flex justify-content-center w-100 p-2">
+            <p class="btn btn-secondary">Add a Photo</p>
+          </div>
+          <div class="d-flex justify-content-end w-100 p-2">
+            <p><%= link_to "Cancel my account", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger"%></p>
+          </div>
+        </div>
+      </div>
 
-  <div class="p-2 my-4 bg-light rounded shadow-sm">
-    <h3>PROFILE SETTINGS</h3>
-    <div class="d-flex justify-content-center align-items-center px-3">
-      <div class="d-flex justify-content-start w-100 p-2">
-        <p><%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-secondary"%></p>
+      <div class="p-2 my-4 bg-light rounded shadow-sm">
+        <h3>YOUR SALES</h3>
+        <div class="d-flex justify-content-center align-items-center px-3">
+          <div class="d-flex justify-content-start w-100 p-2">
+            <p><%= link_to "Announce a New Product", new_product_path, class: "btn btn-secondary"%></p>
+          </div>
+          <div class="d-flex justify-content-center w-100 p-2">
+            <p><%= link_to "List all your products", user_products_path, class: "btn btn-secondary"%></p>
+          </div>
+          <div class="d-flex justify-content-end w-100 p-2">
+            <% if current_user.products.map { |product| product.orders }.flatten.size > 0 %>
+              <p><%= link_to "List all sold products", user_sales_path, class: "btn btn-secondary"%></p>
+            <% else %>
+              <p><%= link_to "List all sold products", user_sales_path, class: "btn btn-secondary disabled"%></p>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <div class="d-flex justify-content-center w-100 p-2">
-        <p class="btn btn-secondary">Add a Photo</p>
-      </div>
-      <div class="d-flex justify-content-end w-100 p-2">
-        <p><%= link_to "Cancel my account", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger"%></p>
-      </div>
-    </div>
-  </div>
 
-  <div class="p-2 my-4 bg-light rounded shadow-sm">
-    <h3>YOUR SALES</h3>
-    <div class="d-flex justify-content-center align-items-center px-3">
-      <div class="d-flex justify-content-start w-100 p-2">
-        <p><%= link_to "Announce a New Product", new_product_path, class: "btn btn-secondary"%></p>
-      </div>
-      <div class="d-flex justify-content-center w-100 p-2">
-        <p><%= link_to "List all your products", user_products_path, class: "btn btn-secondary"%></p>
-      </div>
-      <div class="d-flex justify-content-end w-100 p-2">
-        <% if current_user.products.map { |product| product.orders }.flatten.size > 0 %>
-          <p><%= link_to "List all sold products", user_sales_path, class: "btn btn-secondary"%></p>
+      <div class="p-2 my-4 bg-light rounded shadow-sm">
+        <h3>Your Orders</h3>
+        <% if @user.orders.size > 0 %>
+          <table class="table">
+            <tr>
+              <th>Order</th>
+              <th>Price</th>
+              <th>Delete</th>
+            </tr>
+
+            <% @user.orders.each do |order| %>
+              <tr>
+                <td><%= link_to order.product.name, product_path(order.product), class: "btn btn-secondary" %></td>
+                <td><%= "R#{number_to_currency((order.price/100.0).round(2))}" %></td>
+                <td>
+                  <%= link_to  order_path(order), method: :delete do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+
+          </table>
         <% else %>
-          <p><%= link_to "List all sold products", user_sales_path, class: "btn btn-secondary disabled"%></p>
+          <div class="text-center">
+            <h5>You have no orders yet.</h5>
+            <p><%= link_to "Lets go Shopping XD", products_path %></p>
+          </div>
         <% end %>
       </div>
-    </div>
-  </div>
-
-  <div class="p-2 my-4 bg-light rounded shadow-sm">
-    <h3>Your Orders</h3>
-    <% if @user.orders.size > 0 %>
-      <table class="table">
-        <tr>
-          <th>Order</th>
-          <th>Price</th>
-          <th>Delete</th>
-        </tr>
-
-        <% @user.orders.each do |order| %>
-          <tr>
-            <td><%= link_to order.product.name, product_path(order.product), class: "btn btn-secondary" %></td>
-            <td><%= "R#{number_to_currency((order.price/100.0).round(2))}" %></td>
-            <td>
-              <%= link_to  order_path(order), method: :delete do %>
-                <i class="fas fa-trash-alt"></i>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-
-      </table>
-    <% else %>
-      <div class="text-center">
-        <h5>You have no orders yet.</h5>
-        <p><%= link_to "Lets go Shopping XD", products_path %></p>
-      </div>
+      <% else %>
+        <%#=  redirect_to user_path(cu) %>
     <% end %>
   </div>
 </div>
