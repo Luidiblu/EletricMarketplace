@@ -8,9 +8,11 @@
   <%= f.input :price %>
 
   <%= f.input :description %>
+  <br>
+  <p>Photo *</p>
 
-  <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label: '' %>
-  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label: 'Photo' %>
+  <%= f.input :photo_cache, as: :hidden, input_html: { class: 'hidden', id: 'photo-input'} %>
 
   <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
 
