@@ -9,10 +9,23 @@ puts "#{Product.count} Products!"
 Order.destroy_all
 puts "#{Order.count} Orders!"
 
+# CRIAR USUÁRIOS \/
 
 puts "Creating Fake user with 5 Fake Cars"
 user = User.new(
   email: "roberto@barros.com",
+  password: "thanos"
+  )
+
+if user.save
+  puts "#{User.last.email} was created, with #{User.last.password}"
+else
+  puts "========== Something went wrong =========="
+  puts "===== #{user.errors.messages} ====="
+end
+
+user = User.new(
+  email: "carlos@garcia.com",
   password: "thanos"
   )
 
@@ -35,6 +48,7 @@ else
   puts "===== #{user.errors.messages} ====="
 end
 
+# CRIAR CARROS \/
 
   car = Product.create(
     name: "MODEL S P100DL SILVER",
@@ -60,6 +74,8 @@ else
   puts "========== Something went wrong =========="
   puts "===== #{car.errors.messages} ====="
 end
+
+# --------------------
 
   car = Product.create(
     name: "MODEL S 85D RED",
@@ -95,6 +111,8 @@ else
   puts "===== #{car.errors.messages} ====="
 end
 
+# ---------------------
+
   car = Product.create(
     name: "MODEL 3 P3D SILVER",
     description: "2018 Used Tesla Model P3D
@@ -103,7 +121,6 @@ Long Range PERFORMANCE Model 3
 Midnight Silver Metallic
 18″ Aero Wheels
 Premium Interior
-EAP NOT ENABLED. NEW OWNER MAY ENABLE WITH TESLA FOR A FEE
 ",
     price: rand(50_000..100_000),
     category: "Model 3"
@@ -118,6 +135,8 @@ else
   puts "========== Something went wrong =========="
   puts "===== #{car.errors.messages} ====="
 end
+
+# ----------------------
 
   car = Product.create(
     name: "SEMI P59 SILVER",
@@ -146,14 +165,16 @@ else
   puts "===== #{car.errors.messages} ====="
 end
 
+# ----------------------
+
   car = Product.create(
-    name: "BYTON M-BYTE",
+    name: "BYTON M-BYTE BLACK",
     description: "Conventional automotive styling features are giving way to innovative design icons.
     Side-view cameras replace side mirrors, iconic face recognition cameras
     provide user identification and BYTON Smart Surfaces show a situation-based interacting light design.
     These are just some of the intelligent signature elements that reinforce the visible
     digital power of the vehicle.",
-    price: rand(100_000..300_000),
+    price: rand(50_000..100_000),
     category: "semi"
     )
 
@@ -167,15 +188,17 @@ else
   puts "===== #{car.errors.messages} ====="
 end
 
+# ---------------------
+
   car = Product.create(
-    name: "Chevrolet BOLT 2019",
+    name: "CHEVROLET BOLT 2019",
     description: "Powertrain: 200 HP
 Dimensions: 4.166 mm C x 1.765 mm L x 1.595 mm A
 Max speed: 145 km/h
 Thrust de 0 a 100 km/h: 6,5 sec
 Peso: 1.616 kg
 Transmission: Automatic",
-    price: rand(100_000..300_000),
+    price: rand(50_000..100_000),
     category: "BOLT"
     )
 
@@ -189,8 +212,10 @@ else
   puts "===== #{car.errors.messages} ====="
 end
 
+# ---------------------
+
   car = Product.create(
-    name: "Renault Zoe 2019",
+    name: "RENAULT ZOE 2019",
     description: "Max speed: 135 km/h
 Powertrain: 92 HP
 Thrust de 0 a 100 km/h: 13,2 segundos
@@ -202,6 +227,97 @@ Vol: Basic: 338 l / Retracted seats: 1.225 l",
 
   car.user = User.first
   car.remote_photo_url = "https://www.razaoautomovel.com/wp-content/uploads/2018/02/ZOE-ZE-40-CR-4-e1518782912600_925x520_acf_cropped-1.jpg"
+
+if car.save
+  puts "#{car.name} from #{car.user.email} created!"
+else
+  puts "========== Something went wrong =========="
+  puts "===== #{car.errors.messages} ====="
+end
+
+# ---------------------
+
+  car = Product.create(
+    name: "BYD E5",
+    description: "With the help of up to 300 km in a single recharge, the new e5 has performance from 0-100 in up to 9 seconds.
+    Equipped with Lithium Iron Phosphate battery
+    technology, fast, BMS (Battery Management System) system, fully charges up to 1.5 h.",
+    price: rand(50_000..100_000),
+    category: "BYD"
+    )
+
+  car.user = User.first
+  car.remote_photo_url = "https://conteudo.imguol.com.br/c/entretenimento/6a/2017/09/08/byd-e5-1504877777414_v2_1920x1279.jpg"
+
+if car.save
+  puts "#{car.name} from #{car.user.email} created!"
+else
+  puts "========== Something went wrong =========="
+  puts "===== #{car.errors.messages} ====="
+end
+
+# ---------------------
+
+  car = Product.create(
+    name: "KIA SOUL EV BLACK",
+    description: "KIA e-Soul is the third generation of the Korean automaker's urban crossover.
+    After two generations KIA withdrew the car from Europe, but now it returns as an EV
+    along with Hyundai Kona Electric and KIA e-Niro. KIA e-Soul comes with 39 or 64 kWh batteries.
+    The former give KIA e-Soul 289 km range, and the latter more than 450 km.",
+    price: rand(50_000..100_000),
+    category: "KIA"
+    )
+
+  car.user = User.first
+  car.remote_photo_url = "https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/wp-content/uploads/2016/09/2016-Kia-Soul-EV-111.jpg"
+
+if car.save
+  puts "#{car.name} from #{car.user.email} created!"
+else
+  puts "========== Something went wrong =========="
+  puts "===== #{car.errors.messages} ====="
+end
+
+# ---------------------
+
+  car = Product.create(
+    name: "HYUNDAI KONA ELETRIC SILVER",
+    description: "Long driving range of 258 miles
+Quick acceleration and sharp handling make it fun to drive
+Comfortable and quiet cabin
+Plenty of standard tech features
+Tight rear legroom
+Availability limited to just a few states",
+    price: rand(50_000..100_000),
+    category: "KIA"
+    )
+
+  car.user = User.first
+  car.remote_photo_url = "https://images.hgmsites.net/hug/2019-hyundai-kona-electric_100675192_h.jpg"
+
+if car.save
+  puts "#{car.name} from #{car.user.email} created!"
+else
+  puts "========== Something went wrong =========="
+  puts "===== #{car.errors.messages} ====="
+end
+
+# ---------------------
+
+  car = Product.create(
+    name: "HYUNDAI KONA ELETRIC SILVER",
+    description: "Long driving range of 258 miles
+Quick acceleration and sharp handling make it fun to drive
+Comfortable and quiet cabin
+Plenty of standard tech features
+Tight rear legroom
+Availability limited to just a few states",
+    price: rand(50_000..100_000),
+    category: "KIA"
+    )
+
+  car.user = User.first
+  car.remote_photo_url = "https://images.hgmsites.net/hug/2019-hyundai-kona-electric_100675192_h.jpg"
 
 if car.save
   puts "#{car.name} from #{car.user.email} created!"
