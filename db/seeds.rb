@@ -25,6 +25,18 @@ else
 end
 
 user = User.new(
+  email: "carlos@garcia.com",
+  password: "thanos"
+  )
+
+if user.save
+  puts "#{User.last.email} was created, with #{User.last.password}"
+else
+  puts "========== Something went wrong =========="
+  puts "===== #{user.errors.messages} ====="
+end
+
+user = User.new(
   email: "elon@musk.com",
   password: "thanos"
   )
