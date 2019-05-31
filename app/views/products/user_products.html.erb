@@ -1,25 +1,19 @@
 <div class="container">
   <div class="row">
-    <% @products.each do |product| %>
-      <div class="col-12 col-md-4 col-lg-3 p-1">
-        <div class="card p-2">
-          <%= link_to product_path(product) do %>
+      <% @products.each do |product| %>
+        <div class="col-12 col-sm-4 w-100">
+        <%= link_to product do %>
             <% photo = product.photo.url ? product.photo.url : "https://img.ibxk.com.br///2019/02/01/01171157507271-t1200x480.jpg" %>
-            <%= image_tag( photo ,style: "object-fit: cover; height: 250px;", class: "card-img") %>
-            <div class="card-body">
-              <div class="card-title">
-                <%= product.name %>
-              </div>
-              <div class="card-text">
-                <%= product.user.email %>
-              </div>
-              <div class="card-text">
-                <p><%= number_to_currency((product.price).round(2)) %><%= product.billing_period %> </p>
-              </div>
+
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path photo %>'); margin-bottom:30px">
+            <div class="card-category">$ <%= number_to_currency((product.price).round(2)) %><%= product.billing_period %></div>
+            <div class="card-description">
+              <h2><%= product.name %></h2>
             </div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+            <img class="card-user" src="https://i.imgur.com/b8pzICM.png">
+          </div>
+        <% end %>
+       </div>
+      <% end %>
   </div>
 </div>
