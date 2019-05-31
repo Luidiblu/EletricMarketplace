@@ -14,7 +14,7 @@
         <tr>
           <td><%= link_to product.name, product_path(product), class: "btn btn-secondary" %></td>
           <td><%= product.orders.first.user.email %></td>
-          <td><%= number_to_currency((product.orders.first.price/100.0).round(2)) %></td>
+          <td><%= number_to_currency((product.orders.first.price).round(2)) %></td>
           <td>
             <%= link_to  order_path(product.orders.first), method: :delete do %>
               <i class="fas fa-trash-alt"></i>

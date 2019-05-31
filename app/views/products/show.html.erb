@@ -22,14 +22,12 @@
             <p class="lead"><%= @product.description %></p>
           </div>
         </div>
-
-
         <div class="col-lg-4 justify-content ">
         <div class="card text-center vl" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">
               <p> <%= " #{@product.user.email}" %></h5>
-                <p class="card-text"></p> Price : <%= number_to_currency((@product.price/100.0).round(2)) %></p>
+                <p class="card-text"></p> Price : <%= number_to_currency((@product.price).round(2)) %></p>
                 <div class="card-footer justify-conte">
 
                   <a href="#" class="btn btn-primary">Go somewhere</a>
