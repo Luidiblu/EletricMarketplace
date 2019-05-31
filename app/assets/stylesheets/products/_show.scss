@@ -36,7 +36,9 @@
 }
 
 .details {
-  z-index: 2; //   background-color: rgba(0, 0, 0, 0.075);
+  //z-index: 2;
+  opacity: 2.5;
+  background-color: rgba(0, 0, 0, 0.075);
   //   border-radius: 8px;
   //   border-color: red;
   //   border: 2px solid rgba(0, 0, 0, 0.105);
