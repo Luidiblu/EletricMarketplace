@@ -17,8 +17,8 @@
 
       <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
 
-      <%= f.button :submit, class: "btn-primary" %>
-      <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+      <%= f.button :submit, class: "btn-primaryy" %>
+      <%= f.button :button, "Cancel", type: "reset", class: "btn-tertiaryy" %>
     <% end %>
   <% else %>
     <%= simple_form_for @product, wrapper_mappings: { check_boxes: :vertical_collection, radio_buttons: :vertical_collection, file: :custom_file, boolean: :custom_boolean_switch } do |f| %>
