@@ -42,6 +42,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @is_rentable = params[:rent] == 'true'
   end
 
   def update

@@ -35,7 +35,11 @@
                 <div class="card-footer justify-content">
 
                   <% if (user_signed_in? && (current_user != @product.user)) && (!@product.sold?) %>
-                  <%= link_to "BUY NOW", product_orders_path(@product), method: :post, class: "btn btn-success w-100" %>
+                    <% unless @product.rentable? %>
+                      <%= link_to "BUY NOW", product_orders_path(@product), method: :post, class: "btn btn-success w-100" %>
+                    <% else %>
+                      <%= link_to "RENT IT", product_orders_path(@product), method: :post, class: "btn btn-warning w-100" %>
+                    <% end %>
                   <% end %>
 
                 </div>
@@ -46,13 +50,16 @@
           </div>
         </div>
         <div class="card-footer text-muted">
-          <div class="">
-            2 days ago
+          <div class="d-flex justify-content-between">
+            <p>2 days ago</p>
             <% if current_user == @product.user %>
-            <div class="commands">
-            <%= link_to "Edit", edit_product_path %>
-            <%= link_to "DELETE", product_path, method: :delete %>
-            </div>
+              <div class="commands text-inline">
+                <%= link_to "Edit", edit_product_path, class: "mx-3" %>
+                <%= link_to "DELETE", product_path, method: :delete, class: "mx-3" %>
+                <% unless @product.rentable? %>
+                  <%= link_to "Set as a Rent", edit_product_path(rent: true), class: "mx-3" %>
+                <% end %>
+              </div>
             <% end %>
           </div>
         </div>

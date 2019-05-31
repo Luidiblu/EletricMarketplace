@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
 
   def destroy
     @order = Order.find(params[:id])
+    @product = @order.product
     @product.sold = false
     @product.save
 

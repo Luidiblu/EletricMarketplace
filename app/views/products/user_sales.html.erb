@@ -6,6 +6,7 @@
         <th>Order</th>
         <th>Buyer</th>
         <th>Price</th>
+        <th>Type</th>
         <th>Delete</th>
       </tr>
 
@@ -14,7 +15,8 @@
         <tr>
           <td><%= link_to product.name, product_path(product), class: "btn btn-secondary" %></td>
           <td><%= product.orders.first.user.email %></td>
-          <td><%= number_to_currency((product.orders.first.price).round(2)) %></td>
+          <td><%= number_to_currency((product.orders.first.price).round(2)) %><%= "/#{product.billing_period.chop.chop }" if product.rentable? %> </td>
+          <td><%= product.orders.first.rent? ? "Rent" : "Sale" %></td>
           <td>
             <%= link_to  order_path(product.orders.first), method: :delete do %>
               <i class="fas fa-trash-alt"></i>
