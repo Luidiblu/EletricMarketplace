@@ -62,7 +62,8 @@ Dark Ask Wood Decor
 Dark Headliner
 Ludicrous Speed Upgrade",
     price: rand(50_000..100_000),
-    category: "Model S"
+    category: "Model S",
+    address: '16 Villa Gaudelet, Paris'
     )
 
   car.user = User.last

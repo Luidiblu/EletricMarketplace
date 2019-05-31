@@ -3,6 +3,14 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
 
   def index
+    @map = Product.where.not(latitude: nil, longitude: nil)
+
+    @markers = @map.map do |p|
+      {
+        lat: p.latitude,
+        lng: p.longitude
+      }
+    end
     if params[:query].present?
       @products = Product.search_by_name_and_description("%#{params[:query]}%")
     else
