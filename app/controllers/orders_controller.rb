@@ -5,10 +5,11 @@ class OrdersController < ApplicationController
     @order = Order.new(price: @product.price)
     @order.user = current_user
     @order.product = @product
+    @order.rent = @product.rentable
 
     if @order.save
-      @order.product.sold = true
-      @order.product.save
+      @product.sold = true
+      @product.save
 
       redirect_to user_path(current_user)
     else
@@ -18,8 +19,8 @@ class OrdersController < ApplicationController
 
   def destroy
     @order = Order.find(params[:id])
-    @order.product.sold = false
-    @order.product.save
+    @product.sold = false
+    @product.save
 
     @order.delete
 

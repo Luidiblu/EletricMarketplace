@@ -17,9 +17,6 @@
 
       <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
 
-      <%= f.input :photo, label_html: { class: 'btn disabled' } %>
-      <%= f.input :photo_cache, as: :hidden %>
-
       <%= f.button :submit, class: "btn-primary" %>
       <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
     <% end %>
@@ -35,9 +32,13 @@
       <%= f.input :billing_period, as: :radio_buttons, collection: ["Monthly", "Weekly", "None"], hint: "Selecting none will set this rental to a regular Sale" %>
 
       <%= f.input :description %>
+      <br>
+      <p>Photo *</p>
 
-      <%= f.input :photo, label_html: { class: 'btn disabled' } %>
-      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label: 'Photo' %>
+      <%= f.input :photo_cache, as: :hidden, input_html: { class: 'hidden', id: 'photo-input'} %>
+
+      <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
 
       <%= f.button :submit, class: "btn-primary" %>
       <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
