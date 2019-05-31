@@ -1,7 +1,7 @@
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <h2><%= current_user.name %> profile.</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
@@ -23,9 +23,10 @@
         <%= f.button :submit, "Update", class: "btn-secondaryy" %>
 
     <% end %>
-
-    <%= link_to "Back", :back, class: "btn-secondaryy" %>
+  <div class="d-flex justify-content-between ">
+    <p><%= link_to "Back", :back, class: "btn-tertiaryy" %></p>
 
     <p><%= link_to "Cancel my account", registration_path(resource_name), class: "btn-primaryy", data: { confirm: "Are you sure?" }, method: :delete %></p>
+    </div>
   </div>
 </div>
