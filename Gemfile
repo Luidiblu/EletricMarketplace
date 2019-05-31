@@ -16,6 +16,9 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'carrierwave', '~> 1.2'
 
+# Geocode - and Location services
+gem 'geocoder'
+
 gem 'devise'
 
 gem 'pg_search'

@@ -1,11 +1,50 @@
-.details {
-  background-color: rgba(0, 0, 0, 0.075);
-  border-radius: 8px;
-  border-color: red;
-  border: 2px solid rgba(0, 0, 0, 0.105);
-  padding: 5px;
+//
+.brk {
+  line-break: strict;
 }
 
-.price {
-  text-align: center;
+.vl {
+  border-left: 6px solid green;
+  height: 75%;
+  display: block;
+  margin-bottom: -31px;
+  border-style: solid;
+  border-color: #8c8b8b;
+  border-width: 1px 0 0px 2px;
+  border-radius: 20px;
 }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.fix_to_top {
+  margin-block-start: -70px;
+}
+
+.intro_car_image {
+  object-fit: cover;
+  height: 80vh;
+  border-radius: 4%;
+  -webkit-box-shadow: -14px 20px 26px 0 rgba(0,0,0,0.75);
+  -moz-box-shadow: -14px 20px 26px 0 rgba(0,0,0,0.75);
+  box-shadow: -14px 20px 26px 0 rgba(0,0,0,0.75);
+}
+
+.details {
+  //z-index: 2;
+  opacity: 2.5;
+  background-color: rgba(0, 0, 0, 0.075);
+  //   border-radius: 8px;
+  //   border-color: red;
+  //   border: 2px solid rgba(0, 0, 0, 0.105);
+  //   padding: 5px;
+}
+//
+// .price {
+//   text-align: center;
+// }
