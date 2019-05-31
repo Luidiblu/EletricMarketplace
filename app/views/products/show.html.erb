@@ -1,4 +1,4 @@
-<div class="details text-center">
+<div class="text-center">
   <div class="row z-depth-5">
     <div class="col">
 
@@ -10,24 +10,24 @@
   </div>
 
 
-  <div class="card text-center">
+  <div class="details card text-center">
     <div class="card-header justify-content-center">
       <h5 class="card-title text-center"><%= @product.name %></h5>
     </div>
     <div class="card-body text-center">
-      <div class="row d-flex">
+      <div class="row d-flex z-depth-5">
         <div class="col-md-8">
 
-          <div class="jumbotron">
-            <p class="lead"><%= @product.description %></p>
+          <div class="jumbotron text-left">
+            <p class="lead text-body"><%= @product.description %></p>
           </div>
         </div>
         <div class="col-lg-4 justify-content ">
         <div class="card text-center vl" style="width: 18rem;">
-          <div class="card-body">
+          <div class="card-body text-body  ">
             <h5 class="card-title">
               <p> <%= " #{@product.user.email}" %></h5>
-                <p class="card-text"></p> Price : <%= number_to_currency((@product.price).round(2)) %></p>
+                <p class="card-text "></p> Price : <%= number_to_currency((@product.price).round(2)) %></p>
                 <div class="card-footer justify-conte">
 
                   <a href="#" class="btn btn-primary">Go somewhere</a>
