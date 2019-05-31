@@ -22,10 +22,10 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.user = current_user
     @product.rentable = (%w[Weekly Monthly].include? @product.billing_period)
-    @product.billing_period.delete("ly")
+    @product.billing_period.chomp("ly")
 
     if @product.save
-      raise
+      # raise
 
       redirect_to @product
     else
