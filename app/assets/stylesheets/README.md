@@ -1,3 +1,14 @@
+## rent e-pump
+
+  *  model : Product category
+  *  controller : rails g controller e-pump  
+  *  views : index all pumps
+             show a pump
+             book a pump
+  * routes :index show
+  order.create rent pump
+
+
 ## Setup
 
 Ensure you have bootstrap and it's dependencies
