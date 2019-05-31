@@ -22,7 +22,7 @@
 
 <div class="container">
   <div class="p-2 my-4 bg-light rounded shadow-sm">
-    <h3>YOUR SALES</h3>
+    <h3>SALES</h3>
     <div class="d-flex justify-content-center align-items-center px-3">
       <div class="d-flex justify-content-start w-100 p-2">
         <p><%= link_to "Announce a New Product", new_product_path, class: "btn btn-secondaryy"%></p>
@@ -46,7 +46,7 @@
   </div>
 
   <div class="p-2 my-4 bg-light rounded shadow-sm">
-    <h3>YOUR ORDERS</h3>
+    <h3>ORDERS</h3>
     <% if @user.orders.size > 0 %>
       <table class="table">
         <tr>
