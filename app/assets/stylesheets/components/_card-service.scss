@@ -9,14 +9,144 @@
     border-radius: 5%;
     opacity: 0.6;
     display: block;
+    text-decoration: none;
     height: 100%;
 }
 
 .card-service p {
   opacity: 1;
+  text-decoration: none;
   color: black;
 }
 
 .card-service h3 {
   text-align: center;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 180px;
+  background: white;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-product img {
+  height: 100%;
+  width: 190px;
+  object-fit: cover;
+  text-decoration: none;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  text-decoration: none;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.product-title h6 {
+  text-decoration: none;
+  color: black;
+  font-family: Gotham Medium,system,sans-serif;
+  font-weight: bold;
+  margin: auto;
+  font-family: Gotham Medium,"M Hei PRC W45","M Hei HK W42","M Hei HK W40","HelveticaNeue-Regular","Helvetica Neue Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.product-price h6 {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  font-family: Gotham Medium,system,sans-serif;
+  font-family: Gotham Medium,"M Hei PRC W45","M Hei HK W42","M Hei HK W40","HelveticaNeue-Regular","Helvetica Neue Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.card-product:hover {
+ a{
+ text-decoration: none;
+  }
+}
+
+.product-boy {
+  text-decoration: none;
+}
+
+.card-product {
+  text-decoration: none;
+}
+
+.card {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+}
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 40px;
+}
+.card-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.card-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.card-description h2 {
+  font-size: 24px;
+}
+.card-description p {
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover {
+  opacity: 0.1;
 }
