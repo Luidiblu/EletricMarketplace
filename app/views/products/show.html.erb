@@ -1,39 +1,48 @@
-<div class="container_new">
-  <div class="parallax" style="background-image: url('<%= @product.photo %>');">
-    <% if @product.sold? %>
-      <h2 style="color: red;">SOLD</h2>
-    <% end %>
-    <!-- Inserir Embeded Ruby quanto houver @product.img ou algo assim -->
-  </div>
-</div>
-  <div class="container">
+<div class="details text-center">
+  <div class="row z-depth-5">
+    <div class="col">
 
-  <h3><%= @product.name %></h3>
-  <div class="d-flex justify-content-between">
+        <div class="row p-4 fix_to_top">
+          <%= cl_image_tag (@product.photo), class: "w-100 intro_car_image " %>
 
-    <% if current_user == @product.user %>
-      <div class="commands">
-        <%= link_to "Edit", edit_product_path %>
-        <%= link_to "DELETE", product_path, method: :delete %>
       </div>
-    <% end %>
-
-    <p><%= @product.description %></p>
-    <div class="details">
-      <p>
-        <i class="fas fa-user"></i>
-        NOME QUANDO TIVER
-      </p>
-
-      <p>
-        <i class="fas fa-envelope"><%= " #{@product.user.email}" %></i>
-      </p>
-
-      <p class="price"><%= number_to_currency((@product.price/100.0).round(2)) %></p>
-
-      <% if (user_signed_in? && (current_user != @product.user)) && (!@product.sold?) %>
-        <%= link_to "BUY NOW", product_orders_path(@product), method: :post, class: "btn btn-success w-100" %>
-      <% end %>
     </div>
   </div>
-</div>
+
+
+  <div class="card text-center">
+    <div class="card-header justify-content-center">
+      <h5 class="card-title text-center"><%= @product.name %></h5>
+    </div>
+    <div class="card-body text-center">
+      <div class="row d-flex">
+        <div class="col-md-8">
+
+          <div class="jumbotron">
+            <p class="lead"><%= @product.description %></p>
+          </div>
+        </div>
+
+
+        <div class="col-lg-4 justify-content ">
+        <div class="card text-center vl" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">
+              <p> <%= " #{@product.user.email}" %></h5>
+                <p class="card-text"></p> Price : <%= number_to_currency((@product.price/100.0).round(2)) %></p>
+                <div class="card-footer justify-conte">
+
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          2 days ago
+        </div>
+      </div>
+    </div>
+    <!-- </section> -->
