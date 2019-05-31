@@ -14,7 +14,7 @@
                 <%= product.user.email %>
               </div>
               <div class="card-text">
-                <p><%= number_to_currency((product.price).round(2)) %></p>
+                <p><%= number_to_currency((product.price).round(2)) %><%= product.billing_period %> </p>
               </div>
             </div>
           <% end %>
