@@ -19,6 +19,7 @@
           <% photo = product.photo.url ? product.photo.url : "https://img.ibxk.com.br///2019/02/01/01171157507271-t1200x480.jpg" %>
 
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path photo %>'); margin-bottom:30px">
+
             <div class="card-category"><%= number_to_currency((product.price).round(2)) %></div>
             <div class="card-description">
               <h2><%= product.name %></h2>
