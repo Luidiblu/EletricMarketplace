@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="p-2 my-4 bg-light rounded shadow-sm">
     <div class="d-flex">
       <div class="bulma">
@@ -11,10 +10,8 @@
       <div class="section-call-for-actions m-auto">
         <div class="text-center px-3">
           <div class="btn-group">
-            <%= link_to "EDIT ACCOUNT", edit_user_registration_path(current_user) %>
+            <%= link_to "EDIT ACCOUNT", edit_user_registration_path(current_user), class: "btn-secondaryy" %>
           </div>
-          <a href="/models/design" class="btn-primaryy">DELETE ACCOUNT</a>
-          <p>Photo inside "edit account"</p>
         </div>
       </div>
     </div>
