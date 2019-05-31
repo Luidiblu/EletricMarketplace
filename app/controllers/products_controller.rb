@@ -15,13 +15,18 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @is_rentable = params[:rent] == 'true'
   end
 
   def create
     @product = Product.new(product_params)
     @product.user = current_user
+    @product.rentable = (%w[Weekly Monthly].include? @product.billing_period)
+    @product.billing_period.delete("ly")
 
     if @product.save
+      raise
+
       redirect_to @product
     else
       render :new
@@ -61,6 +66,16 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :category, :description, :price, :user_id, :photo, :sold)
+    params.require(:product).permit(
+      :name,
+      :category,
+      :description,
+      :price,
+      :user_id,
+      :photo,
+      :sold,
+      :rentable,
+      :billing_period
+    )
   end
 end
