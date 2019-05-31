@@ -1,9 +1,13 @@
 <div class="card" style="width: 18rem;">
   <!-- img class="card-img-top" -->
-  <%= image_tag product.photo.url %>
+
+  <%= image_tag(product.photo.url) if product.photo.url %>
   <ul class="list-group list-group-flush text-dark">
     <li class="list-group-item"><%= product.name %></li>
-    <li class="list-group-item">R$ : <%= number_to_currency((product.price).round(2))  %></li>
-    <li class="list-group-item"><i class="fas fa-envelope"><%= product.user.email %></i></li>
+    <li class="list-group-item">R$ :
+      <%= number_to_currency((product.price).round(2)) %></li>
+    <li class="list-group-item">
+      <i class="fas fa-envelope"><%= product.user.email %></i>
+    </li>
   </ul>
 </div>
