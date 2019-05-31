@@ -278,27 +278,3 @@ else
   puts "========== Something went wrong =========="
   puts "===== #{car.errors.messages} ====="
 end
-
-# ---------------------
-
-  car = Product.create(
-    name: "HYUNDAI KONA ELETRIC SILVER",
-    description: "Long driving range of 258 miles
-Quick acceleration and sharp handling make it fun to drive
-Comfortable and quiet cabin
-Plenty of standard tech features
-Tight rear legroom
-Availability limited to just a few states",
-    price: rand(50_000..100_000),
-    category: "KIA"
-    )
-
-  car.user = User.first
-  car.remote_photo_url = "https://images.hgmsites.net/hug/2019-hyundai-kona-electric_100675192_h.jpg"
-
-if car.save
-  puts "#{car.name} from #{car.user.email} created!"
-else
-  puts "========== Something went wrong =========="
-  puts "===== #{car.errors.messages} ====="
-end
