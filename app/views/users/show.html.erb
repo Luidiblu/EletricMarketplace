@@ -54,6 +54,7 @@
       <table class="table">
         <tr>
           <th>Order</th>
+          <th>Type</th>
           <th>Price</th>
           <th>Delete</th>
         </tr>
@@ -61,8 +62,9 @@
         <% @user.orders.each do |order| %>
           <tr>
             <td><%= link_to order.product.name, product_path(order.product), class: "btn btn-secondaryy" %></td>
+            <td><%= order.rent? ? "Rent" : "Sale" %></td>
 
-            <td><%= "#{number_to_currency((order.price/100.0).round(2))}" %></td>
+            <td><%= number_to_currency((order.price/100.0).round(2)) %></td>
             <td>
               <%= link_to  order_path(order), method: :delete do %>
                 <i class="fas fa-trash-alt"></i>
