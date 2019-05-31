@@ -1,23 +1,47 @@
 <div class="container">
-  <%= simple_form_for @product, wrapper_mappings: { check_boxes: :vertical_collection, radio_buttons: :vertical_collection, file: :custom_file, boolean: :custom_boolean_switch } do |f| %>
-  <%= f.error_notification %>
+  <% unless @is_rentable || @product.rentable %>
+    <%= simple_form_for @product, wrapper_mappings: { check_boxes: :vertical_collection, radio_buttons: :vertical_collection, file: :custom_file, boolean: :custom_boolean_switch } do |f| %>
+      <%= f.error_notification %>
 
-  <%= f.input :name %>
+      <%= f.input :name %>
 
-  <%= f.input :category, as: :radio_buttons, collection: ["Sell the car", "Rent the car"]  %>
-  <%= f.input :price %>
+      <%= f.input :category, as: :radio_buttons, collection: ["Car", "Charging Station"]  %>
+      <%= f.input :price %>
 
-  <%= f.input :description %>
-  <br>
-  <p>Photo *</p>
+      <%= f.input :description %>
+      <br>
+      <p>Photo *</p>
 
-  <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label: 'Photo' %>
-  <%= f.input :photo_cache, as: :hidden, input_html: { class: 'hidden', id: 'photo-input'} %>
+      <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label: 'Photo' %>
+      <%= f.input :photo_cache, as: :hidden, input_html: { class: 'hidden', id: 'photo-input'} %>
 
-  <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+      <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
 
-  <%= f.button :submit, class: "btn-primaryy" %>
-  <%= f.button :button, "Cancel", type: "reset", class: "btn-tertiaryy" %>
-<% end %>
+      <%= f.button :submit, class: "btn-primary" %>
+      <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+    <% end %>
+  <% else %>
+    <%= simple_form_for @product, wrapper_mappings: { check_boxes: :vertical_collection, radio_buttons: :vertical_collection, file: :custom_file, boolean: :custom_boolean_switch } do |f| %>
+      <%= f.error_notification %>
 
+      <%= f.input :name %>
+
+      <%= f.input :category, as: :radio_buttons, collection: ["Car", "Charging Station"]  %>
+      <%= f.input :price, hint: "test" %>
+
+      <%= f.input :billing_period, as: :radio_buttons, collection: ["Monthly", "Weekly", "None"], hint: "Selecting none will set this rental to a regular Sale" %>
+
+      <%= f.input :description %>
+      <br>
+      <p>Photo *</p>
+
+      <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label: 'Photo' %>
+      <%= f.input :photo_cache, as: :hidden, input_html: { class: 'hidden', id: 'photo-input'} %>
+
+      <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+
+      <%= f.button :submit, class: "btn-primary" %>
+      <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+    <% end %>
+  <% end %>
 </div>
