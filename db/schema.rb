@@ -37,14 +37,11 @@ ActiveRecord::Schema.define(version: 2019_05_31_181321) do
     t.datetime "updated_at", null: false
     t.string "photo"
     t.boolean "sold"
-
     t.float "latitude"
     t.float "longitude"
     t.text "address"
-
     t.boolean "rentable"
     t.string "billing_period"
-
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
