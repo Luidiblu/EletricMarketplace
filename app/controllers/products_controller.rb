@@ -8,7 +8,8 @@ class ProductsController < ApplicationController
     @markers = @map.map do |p|
       {
         lat: p.latitude,
-        lng: p.longitude
+        lng: p.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { product: p })
       }
     end
     if params[:query].present?
